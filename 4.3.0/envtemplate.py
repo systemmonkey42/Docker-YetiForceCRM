@@ -18,7 +18,7 @@ def main(argv):
       inputfile = arg
     elif opt in ("-o", "--ofile"):
       outputfile = arg
-  
+
   # Read all environment variables in and populate a case-insensitive
   # dictionary for replacement
   values = dict()
@@ -27,7 +27,7 @@ def main(argv):
     values[k] = v
     values[k.lower()] = v
 
-  
+
 
   # Read the template
   ifile = open(inputfile)
@@ -35,7 +35,7 @@ def main(argv):
   ifile.close()
 
   out = Template(templatestr).substitute(values)
-  
+
   print "Writing output to {}".format(outputfile)
   print "==============================="
   print out

@@ -1,8 +1,8 @@
 FROM php:7.1-apache
 
 # YetiForce CRM
-ENV DOWNLOAD_URL https://github.com/YetiForceCompany/YetiForceCRM/releases/download/4.3.0/YetiForceCRM-4.3.0-complete.zip
-ENV DOWNLOAD_FILE YetiForceCRM-4.3.0-complete.zip
+ENV DOWNLOAD_URL https://github.com/YetiForceCompany/YetiForceCRM/releases/download/4.4.0/YetiForceCRM-4.4.0-complete.zip
+ENV DOWNLOAD_FILE YetiForceCRM-4.4.0-complete.zip
 ENV EXTRACT_FOLDER YetiForceCRM
 ENV WWW_FOLDER /var/www/html
 ENV WWW_USER www-data
@@ -18,7 +18,7 @@ RUN docker-php-ext-configure imap --with-imap-ssl --with-kerberos && \
 WORKDIR /tmp
 
 RUN wget ${DOWNLOAD_URL} && \
-    unzip YetiForceCRM-4.3.0-complete.zip -d $EXTRACT_FOLDER && \
+    unzip YetiForceCRM-4.4.0-complete.zip -d $EXTRACT_FOLDER && \
     rm $DOWNLOAD_FILE && \
     rm -rf ${WWW_FOLDER}/* && \
     cp -R ${EXTRACT_FOLDER}/* ${WWW_FOLDER}/ && \
